@@ -1,24 +1,16 @@
 package org.example;
 
-/**
- * Hello world!
- *
- */
-public class App
-{
+public class App { // Class definition added here
+    public static void main(String[] args) {
+        // Default name
+        String name = "World";
 
-
-        public static void main(String[] args) {
-
-            if (args.length == 0) {
-                System.out.println("No arguments given.");
-                return;
-            }
-
-            System.out.println("Names entered are:");
-
-            for (int i = 0; i < args.length; i++) {
-                System.out.println(args[i]);
-            }
+        // Check if a name is provided as a command-line argument
+        // We check the length of the args array to avoid ArrayIndexOutOfBoundsException
+        if (args.length > 0) {
+            name = args[0]; // Use the provided name
         }
+
+        System.out.println("Hello, " + name + "!");
     }
+}
