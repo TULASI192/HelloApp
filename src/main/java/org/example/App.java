@@ -1,14 +1,24 @@
 package org.example;
 
-public class App { // Class definition added here
+public class App {
     public static void main(String[] args) {
-        // Default name
-        String name = "World";
+        String name;
 
-        // Check if a name is provided as a command-line argument
-        // We check the length of the args array to avoid ArrayIndexOutOfBoundsException
+        // Check if any arguments are passed
         if (args.length > 0) {
-            name = args[0]; // Use the provided name
+            StringBuilder nameBuilder = new StringBuilder();
+            // Loop through all arguments
+            for (int i = 0; i < args.length; i++) {
+                nameBuilder.append(args[i]);
+                // Add comma and space if not the last element
+                if (i < args.length - 1) {
+                    nameBuilder.append(", ");
+                }
+            }
+            name = nameBuilder.toString();
+        } else {
+            // Default value if no arguments are provided
+            name = "World";
         }
 
         System.out.println("Hello, " + name + "!");
