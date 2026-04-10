@@ -2,25 +2,20 @@ package org.example;
 
 public class App {
     public static void main(String[] args) {
-        String name;
-
-        // Check if any arguments are passed
-        if (args.length > 0) {
-            StringBuilder nameBuilder = new StringBuilder();
-            // Loop through all arguments
-            for (int i = 0; i < args.length; i++) {
-                nameBuilder.append(args[i]);
-                // Add comma and space if not the last element
-                if (i < args.length - 1) {
-                    nameBuilder.append(", ");
-                }
-            }
-            name = nameBuilder.toString();
-        } else {
-            // Default value if no arguments are provided
-            name = "World";
+        // If no arguments provided, print default message
+        if (args.length == 0) {
+            System.out.println("Hello, World!");
+            return;
         }
-
-        System.out.println("Hello, " + name + "!");
+        // Build comma-separated names using StringBuilder
+        StringBuilder namesBuilder = new StringBuilder();
+        boolean first = true;
+        for (String name: args) {
+            if (!first) {
+                namesBuilder.append(", ");
+            }
+            namesBuilder.append(name);
+            first = false;
+        }
     }
 }
